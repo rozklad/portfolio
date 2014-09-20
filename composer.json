@@ -1,6 +1,7 @@
 {
     "require": {
-        "michelf/php-markdown": "1.4.*"
+        "michelf/php-markdown": "1.4.*",
+        "mustache/mustache": "~2.5"
     },
     "autoload": {
         "psr-4": {"Portfolio\\": "src/"}

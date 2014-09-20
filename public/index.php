@@ -7,6 +7,9 @@
  * @author rozklad <rozklad.me>
  */
 
+use Portfolio\View as View;
+use Portfolio\Controllers\Config as Config;
+
 ini_set('display_errors', true);
 error_reporting(E_ALL);
 
@@ -38,8 +41,16 @@ function storage_path( $subpath = null ) {
     return __DIR__ . '/../content' . $subpath;
 }
 
+function base_path() {
+    return dirname(__DIR__);
+}
+
+View::render('index', Config::getAll());
+
+/*
 // Show menu
-\Portfolio\Presenters\PagePresenter::menu( storage_path() );
+Portfolio\Presenters\PagePresenter::menu( storage_path() );
 
 // Basic usage
-\Portfolio\Presenters\PagePresenter::show('index.md');
+Portfolio\Presenters\PagePresenter::show('index.md');
+*/

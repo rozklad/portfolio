@@ -19,6 +19,7 @@
     "respond": "1.4.2",
     "gsap": "1.13.2",
     "PreloadJS": "latest",
-    "threejs": "latest"
+    "threejs": "latest",
+    "outdated-browser": "1.1.0"
   }
 }
