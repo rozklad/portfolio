@@ -6,20 +6,20 @@ module.exports = function(grunt) {
   require('time-grunt')(grunt);
 
   var jsFileList = [
-    'assets/vendor/bootstrap-sass-official/assets/javascripts/bootstrap/transition.js',
-    'assets/vendor/bootstrap-sass-official/assets/javascripts/bootstrap/alert.js',
-    'assets/vendor/bootstrap-sass-official/assets/javascripts/bootstrap/button.js',
-    'assets/vendor/bootstrap-sass-official/assets/javascripts/bootstrap/carousel.js',
-    'assets/vendor/bootstrap-sass-official/assets/javascripts/bootstrap/collapse.js',
-    'assets/vendor/bootstrap-sass-official/assets/javascripts/bootstrap/dropdown.js',
-    'assets/vendor/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js',
-    'assets/vendor/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip.js',
-    'assets/vendor/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js',
-    'assets/vendor/bootstrap-sass-official/assets/javascripts/bootstrap/scrollspy.js',
-    'assets/vendor/bootstrap-sass-official/assets/javascripts/bootstrap/tab.js',
-    'assets/vendor/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js',
-    'assets/js/plugins/*.js',
-    'assets/js/_*.js'
+    'public/assets/vendor/bootstrap-sass-official/assets/javascripts/bootstrap/transition.js',
+    'public/assets/vendor/bootstrap-sass-official/assets/javascripts/bootstrap/alert.js',
+    'public/assets/vendor/bootstrap-sass-official/assets/javascripts/bootstrap/button.js',
+    'public/assets/vendor/bootstrap-sass-official/assets/javascripts/bootstrap/carousel.js',
+    'public/assets/vendor/bootstrap-sass-official/assets/javascripts/bootstrap/collapse.js',
+    'public/assets/vendor/bootstrap-sass-official/assets/javascripts/bootstrap/dropdown.js',
+    'public/assets/vendor/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js',
+    'public/assets/vendor/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip.js',
+    'public/assets/vendor/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js',
+    'public/assets/vendor/bootstrap-sass-official/assets/javascripts/bootstrap/scrollspy.js',
+    'public/assets/vendor/bootstrap-sass-official/assets/javascripts/bootstrap/tab.js',
+    'public/assets/vendor/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js',
+    'public/assets/js/plugins/*.js',
+    'public/assets/js/_*.js'
   ];
 
   grunt.initConfig({
@@ -29,9 +29,9 @@ module.exports = function(grunt) {
       },
       all: [
         'Gruntfile.js',
-        'assets/js/*.js',
-        '!assets/js/scripts.js',
-        '!assets/**/*.min.*'
+        'public/assets/js/*.js',
+        '!public/assets/js/scripts.js',
+        '!public/assets/**/*.min.*'
       ]
     },
     sass: {
@@ -45,8 +45,8 @@ module.exports = function(grunt) {
           sourcemap: false
         },
         files: {
-          'assets/css/main.css': [
-            'assets/sass/main.scss'
+          'public/assets/css/main.css': [
+            'public/assets/sass/main.scss'
           ]
         }
       },
@@ -60,8 +60,8 @@ module.exports = function(grunt) {
           sourcemap: false
         },
         files: {
-          'assets/css/main.min.css': [
-            'assets/sass/main.scss'
+          'public/assets/css/main.min.css': [
+            'public/assets/sass/main.scss'
           ]
         }
       }
@@ -72,13 +72,13 @@ module.exports = function(grunt) {
       },
       dist: {
         src: [jsFileList],
-        dest: 'assets/js/scripts.js',
+        dest: 'public/assets/js/scripts.js',
       },
     },
     uglify: {
       dist: {
         files: {
-          'assets/js/scripts.min.js': [jsFileList]
+          'public/assets/js/scripts.min.js': [jsFileList]
         }
       }
     },
@@ -90,15 +90,15 @@ module.exports = function(grunt) {
             }
         },
         trim: { // Mogrify (trim operations) requires imagemick
-          command: 'mogrify -trim ./assets/sprites/*.png'
+          command: 'mogrify -trim ./public/assets/sprites/*.png'
         }
     },
     sprite:{
       all: {
-        src: 'assets/sprites/*.png',
-        destImg: 'assets/img/_spritesheet.png',
-        //destCSS: 'assets/css/sprites.css'
-        destCSS: 'assets/sass/_sprite.scss',
+        src: 'public/assets/sprites/*.png',
+        destImg: 'public/assets/img/_spritesheet.png',
+        //destCSS: 'public/assets/css/sprites.css'
+        destCSS: 'public/assets/sass/_sprite.scss',
         cssFormat: 'scss',
         padding: 200,
       }
@@ -112,7 +112,7 @@ module.exports = function(grunt) {
         },
         default: {
             files: {
-                'assets/img/svg-defs.svg': ['assets/sprites/svg/*.svg'],
+                'public/assets/img/svg-defs.svg': ['public/assets/sprites/svg/*.svg'],
             }
         }
     },
@@ -123,23 +123,23 @@ module.exports = function(grunt) {
       dev: {
         options: {
           map: {
-            prev: 'assets/css/'
+            prev: 'public/assets/css/'
           }
         },
-        src: 'assets/css/main.css'
+        src: 'public/assets/css/main.css'
       },
       build: {
-        src: 'assets/css/main.min.css'
+        src: 'public/assets/css/main.min.css'
       }
     },
     modernizr: {
       build: {
-        devFile: 'assets/vendor/modernizr/modernizr.js',
-        outputFile: 'assets/js/vendor/modernizr.min.js',
+        devFile: 'public/assets/vendor/modernizr/modernizr.js',
+        outputFile: 'public/assets/js/vendor/modernizr.min.js',
         files: {
           'src': [
-            ['assets/js/scripts.min.js'],
-            ['assets/css/main.min.css']
+            ['public/assets/js/scripts.min.js'],
+            ['public/assets/css/main.min.css']
           ]
         },
         uglify: true,
@@ -151,22 +151,22 @@ module.exports = function(grunt) {
         options: {
           format: true,
           length: 32,
-          manifest: 'assets/manifest.json',
+          manifest: 'public/assets/manifest.json',
           querystring: {
             style: 'roots_css',
             script: 'roots_js'
           }
         },
         files: {
-          'lib/scripts.php': 'assets/{css,js}/{main,scripts}.min.{css,js}'
+          'lib/scripts.php': 'public/assets/{css,js}/{main,scripts}.min.{css,js}'
         }
       }
     },
     watch: {
       sass: {
         files: [
-          'assets/sass/*.scss',
-          'assets/sass/**/*.scss'
+          'public/assets/sass/*.scss',
+          'public/assets/sass/**/*.scss'
         ],
         tasks: ['sass:dev', 'autoprefixer:dev']
       },
@@ -184,8 +184,8 @@ module.exports = function(grunt) {
           livereload: false
         },
         files: [
-          'assets/css/main.css',
-          'assets/js/scripts.js',
+          'public/assets/css/main.css',
+          'public/assets/js/scripts.js',
           'templates/*.php',
           '*.php'
         ]
