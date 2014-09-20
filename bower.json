@@ -1,0 +1,22 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "homepage": "http://rozklad.me",
+  "authors": [
+    "rozklad <jan.rozklad@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "assets/vendor"
+  ],
+  "dependencies": {
+    "modernizr": "2.8.2",
+    "jquery": "1.11.1",
+    "bootstrap-sass-official": "3.2.0",
+    "respond": "1.4.2",
+    "gsap": "1.13.2"
+  }
+}
