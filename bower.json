@@ -17,6 +17,8 @@
     "jquery": "1.11.1",
     "bootstrap-sass-official": "3.2.0",
     "respond": "1.4.2",
-    "gsap": "1.13.2"
+    "gsap": "1.13.2",
+    "PreloadJS": "latest",
+    "threejs": "latest"
   }
 }
